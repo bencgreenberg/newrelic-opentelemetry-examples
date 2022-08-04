@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: newrelic-hello-world
+spec:
+  selector:
+    matchLabels:
+      app: newrelic-hello-world
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: newrelic-hello-world
+    spec:
+      containers:
+      - name: newrelic-hello-world
+        image: benhayehudi/newrelic-hello-world:v1
+        ports:
+        - containerPort: 5000
